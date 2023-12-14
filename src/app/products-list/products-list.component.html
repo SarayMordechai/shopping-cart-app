@@ -1,4 +1,6 @@
 <app-application></app-application>
+<div *ngIf="notification" class="notification">{{ notification }}</div>
+
 <div class="products-list">
   <div *ngFor="let product of products" class="product-item">
     <img [src]="product.image" [alt]="product.name">

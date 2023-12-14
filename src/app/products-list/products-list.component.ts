@@ -7,6 +7,7 @@ import { ShoppingCartService, Product } from '../shopping-cart.service';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent {
+  notification: string = '';
   products: Product[] = [
     {
       "id": 1,
@@ -65,5 +66,7 @@ export class ProductsListComponent {
 
   onAddToCart(product: Product): void {
     this.shoppingCartService.addToCart(product);
+    this.notification = `${product.name} has been added to the cart.`;
+    setTimeout(() => this.notification = '', 2000);
   }
 }

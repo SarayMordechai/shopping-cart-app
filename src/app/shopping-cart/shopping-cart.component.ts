@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Product, ShoppingCartService} from "../shopping-cart.service";
+import {Component} from '@angular/core';
+import {CartItem , ShoppingCartService} from "../shopping-cart.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,11 +7,16 @@ import {Product, ShoppingCartService} from "../shopping-cart.service";
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-  cartItems: Product[] = [];
+  cartItems: CartItem[] = [];
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit() {
     this.cartItems = this.shoppingCartService.getCart();
+  }
+
+  removeFromCart(productId: number) {
+    this.shoppingCartService.removeFromCart(productId);
+    this.cartItems = this.shoppingCartService.getCart(); // Refresh the list
   }
 }
