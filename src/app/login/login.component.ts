@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 
 interface User {
@@ -16,7 +17,7 @@ export class LoginComponent {
   emailError: string = '';
   passwordError: string = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   onSubmit() {
     this.clearErrors();
@@ -37,6 +38,10 @@ export class LoginComponent {
 
     // Login successful
     console.log('Login successful');
+    const newLoginUser: User = { email: this.email, password: this.password };
+    localStorage.setItem('login_user', JSON.stringify(newLoginUser));
+    this.router.navigate(['/products']);
+
   }
 
   validateEmail(email: string): boolean {

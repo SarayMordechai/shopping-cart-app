@@ -1,0 +1,11 @@
+<app-application></app-application>
+<div class="shopping-cart">
+  <h2>Your Cart</h2>
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.image" [alt]="item.name">
+    <div class="item-details">
+      <h3>{{ item.name }}</h3>
+      <p>£{{ item.price.toFixed(2) }}</p>
+    </div>
+  </div>
+</div>
