@@ -32,7 +32,7 @@ export class RegistrationComponent {
     const users: User[] = JSON.parse(localStorage.getItem('shopping_users') || '[]');
     users.push(newUser);
     localStorage.setItem('shopping_users', JSON.stringify(users));
-    // Clear the form fields (optional)
+
     this.email = '';
     this.password = '';
     this.confirmPassword = '';

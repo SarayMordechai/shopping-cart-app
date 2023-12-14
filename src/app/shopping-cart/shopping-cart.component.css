@@ -30,3 +30,16 @@
   font-size: 1em;
   color: #666;
 }
+.cart-item .item-details button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-item .item-details button:hover {
+  background-color: #c82333;
+}
